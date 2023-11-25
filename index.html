@@ -1,16 +1,40 @@
 <!doctype html>
 <head>
   <title>Connect 4</title>
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@5/dist/css/bootstrap.css">
   <link href="connect4.css" rel="stylesheet">
 </head>
 <body>
 
-<button id="start-game">START GAME</button>
-<div id="game">
-  <table id="board"></table>
-</div>
+  <header>
+    <div class="container">
+      <form action="#" id="start-game">
+      <label for="p1-color"></label>
+      <input type="text" id="p1-color" placeholder="P1 COLOR">
+      <label for="p2-color"></label>
+      <input type="p2-color" id="p2-color" placeholder="P2 COLOR">
+      <label for="computer-color"></label>
+      <input type="text" id="computer-color" placeholder="COMPUTER COLOR">
+      <button>START GAME</button>
+    </form>
+    </div>
+  </header>
 
-<script src="connect4.js"></script>
+  <main>
+    <div class="container">
+      <div id="game">
+        <table id="board"></table>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+  </footer>
+
+<script src="https://unpkg.com/bootstrap@5/dist/js/bootstrap.bundle.js"></script>
+<script src="https://unpkg.com/jquery"></script>
+<script scr="ui.js"></script>
+<script src="models.js"></script>
 
 </body>
 </html>
