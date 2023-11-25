@@ -1,7 +1,5 @@
 "use strict";
 
-const $startGame = $("#start-game");
-
 /** Connect Four
  *
  *  Player 1 and Player 2 alternate turns. On each turn, a piece is dropped
@@ -205,9 +203,9 @@ class Game {
     if (this.players.length > 1) {
       if (this.currPlayer !== this.players.at(-1)) {
 
-          // note to self: using this.playerCount++ does NOT work here somehow
-          this.currPlayer = this.players[this.playerCount += 1];
-          this.checkForComputerPlayer();
+        // note to self: using this.playerCount++ does NOT work here somehow
+        this.currPlayer = this.players[this.playerCount += 1];
+        this.checkForComputerPlayer();
 
       } else {
         this.playerCount = 0;
@@ -275,10 +273,10 @@ class ComputerPlayer extends Player {
     return randomIdx;
   }
 
-/** makeMove: takes a single game instance; creates an array and pushes
- *  available column indexes (if the board is not filled up yet); targets a
- *  random open column (a <th> element) and triggers its click event on target
- */
+  /** makeMove: takes a single game instance; creates an array and pushes
+   *  available column indexes (if the board is not filled up yet); targets a
+   *  random open column (a <th> element) and triggers its click event on target
+   */
   makeMove(game) {
     const openColumnsIndexes = [];
     for (let x = 0; x < game.width; x++) {
@@ -294,17 +292,3 @@ class ComputerPlayer extends Player {
     $thPick.trigger("click");
   }
 }
-
-let g;
-
-
-/** start: handles start of game when user submits players colors form */
-function start(evt) {
-  evt.preventDefault();
-  const p1 = new Player($("#p1-color").val());
-  const p2 = new Player($("#p2-color").val());
-  const p3 = new ComputerPlayer($("#computer-color").val());
-  g = new Game(p1, p2, p3);
-}
-
-$startGame.on("submit", start);
